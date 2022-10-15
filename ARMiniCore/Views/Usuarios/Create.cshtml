@@ -1,0 +1,35 @@
+﻿@model ARMiniCore.Data.Models.Usuario
+@{
+    ViewData["Title"] = "Crear Usuario";
+}
+<h2>Crear Usuario</h2>
+@if (ViewBag.Error == "Error")
+{
+    <div class="container">
+        <div class="alert alert-primary">
+            Se debe insertar información en todos los campos
+        </div>
+    </div>
+}
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        <div>
+            <p>Nombre de usuario</p>
+            @Html.TextAreaFor(model => model.Nombre)
+        </div>
+        <div>
+            <p>Correo de usuario</p>
+            @Html.TextAreaFor(model => model.Correo)
+        </div>
+        <div>
+            <p>Fecha de nacimiento de usuario</p>
+            @Html.TextBoxFor(model=>model.FechaNacimiento, new{Type = "date"})
+        </div>
+        <div>
+            <p>Contraseña</p>
+            @Html.PasswordFor(model => model.Clave)
+        </div>
+        <input values:"Crear" type="submit" />
+    }
+</div>

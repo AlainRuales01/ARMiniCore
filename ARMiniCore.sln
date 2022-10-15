@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARMiniCore", "ARMiniCore\ARMiniCore.csproj", "{C69A7C2C-5691-4C8F-8BD6-831E0B99C329}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ARMiniCore", "ARMiniCore\ARMiniCore.csproj", "{C69A7C2C-5691-4C8F-8BD6-831E0B99C329}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARMiniCore.Data", "ARMiniCore.Data\ARMiniCore.Data.csproj", "{F6152015-9F45-449A-A2DA-289C20C73554}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C69A7C2C-5691-4C8F-8BD6-831E0B99C329}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C69A7C2C-5691-4C8F-8BD6-831E0B99C329}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C69A7C2C-5691-4C8F-8BD6-831E0B99C329}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6152015-9F45-449A-A2DA-289C20C73554}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6152015-9F45-449A-A2DA-289C20C73554}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6152015-9F45-449A-A2DA-289C20C73554}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6152015-9F45-449A-A2DA-289C20C73554}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
