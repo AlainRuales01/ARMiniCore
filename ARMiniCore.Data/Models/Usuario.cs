@@ -17,6 +17,6 @@ namespace ARMiniCore.Data.Models
         public string Correo { get; set; }
         public string Clave { get; set; }
         public DateTime FechaNacimiento { get; set; }
-        public virtual ICollection<UsuarioPase> UsuarioPases { get; set; }
+        public List<UsuarioPase> UsuarioPases { get; set; }
     }
 }

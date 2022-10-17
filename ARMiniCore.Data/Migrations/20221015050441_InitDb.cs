@@ -49,8 +49,8 @@ namespace ARMiniCore.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UsuarioId = table.Column<int>(type: "int", nullable: false),
                     PaseId = table.Column<int>(type: "int", nullable: false),
-                    fechaCompra = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    fechaExpiracion = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    FechaCompra = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FechaExpiracion = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -60,13 +60,13 @@ namespace ARMiniCore.Data.Migrations
                         column: x => x.PaseId,
                         principalTable: "Pase",
                         principalColumn: "PaseId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_UsuarioPase_Usuario_UsuarioId",
                         column: x => x.UsuarioId,
                         principalTable: "Usuario",
                         principalColumn: "UsuarioId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(

@@ -12,18 +12,22 @@ namespace ARMiniCore.Data.Models
         public DataBaseContext(DbContextOptions<DataBaseContext> options)
             : base(options)
         {
-            
+
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<UsuarioPase>().HasOne(u => u.Usuario)
+                .WithMany(u => u.UsuarioPases)
+                .HasForeignKey(u => u.UsuarioId);
+
+            modelBuilder.Entity<UsuarioPase>().HasOne(u => u.Pase)
+                .WithMany(u => u.UsuarioPases)
+                .HasForeignKey(u => u.PaseId);
         }
 
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<Pase> Pase { get; set; }
         public DbSet<UsuarioPase> UsuarioPase { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Usuario>().ToTable("Usuario");
-            modelBuilder.Entity<Pase>().ToTable("Pase");
-            modelBuilder.Entity<UsuarioPase>().ToTable("UsuarioPase");
-        }
     }
 }

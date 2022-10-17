@@ -1,9 +1,9 @@
-﻿@model List<ARMiniCore.Data.Models.Usuario>
+﻿@model List<ARMiniCore.Data.Models.UsuarioPase>
 
 @{
-    ViewData["Title"] = "Usuarios";
+    ViewData["Title"] = "Pases comprados";
 }
-<a class="btn btn-primary" href="@Url.Action("Create")">Crear usuario</a>
+<a class="btn btn-primary" href="@Url.Action("Create")">Crear pase</a>
 
 @if (ViewBag.Error != null)
 {
@@ -22,9 +22,11 @@
         <table class="table">
             <thead class="table-dark">
                 <tr>
-                    <th>Nombre</th>
-                    <th>Correo</th>
-                    <th>Fecha de nacimiento</th>
+                    <th>Nombre de usuario</th>
+                    <th>Tipo de Pase</th>
+                    <th>Número de pases</th>
+                    <th>Fecha de compra</th>
+                    <th>Fecha de expiración</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,13 +34,19 @@
                 {
                     <tr class="align-middle">
                         <td>
-                            @item.Nombre
+                            @item.Usuario.Nombre
                         </td>
                         <td>
-                            @item.Correo
+                            @item.Pase.TipoPase
                         </td>
                         <td>
-                            @item.FechaNacimiento.ToShortDateString()
+                            @item.Pase.Pases
+                        </td>
+                        <td>
+                            @item.FechaCompra.ToShortDateString()
+                        </td>
+                        <td>
+                            @item.FechaExpiracion.ToShortDateString()
                         </td>
                     </tr>
                 }

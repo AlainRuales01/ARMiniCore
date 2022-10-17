@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ARMiniCore.Data.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    [Migration("20221015021811_InitDb")]
+    [Migration("20221015050441_InitDb")]
     partial class InitDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -47,7 +47,7 @@ namespace ARMiniCore.Data.Migrations
 
                     b.HasKey("PaseId");
 
-                    b.ToTable("Pase", (string)null);
+                    b.ToTable("Pase");
                 });
 
             modelBuilder.Entity("ARMiniCore.Data.Models.Usuario", b =>
@@ -75,7 +75,7 @@ namespace ARMiniCore.Data.Migrations
 
                     b.HasKey("UsuarioId");
 
-                    b.ToTable("Usuario", (string)null);
+                    b.ToTable("Usuario");
                 });
 
             modelBuilder.Entity("ARMiniCore.Data.Models.UsuarioPase", b =>
@@ -86,17 +86,17 @@ namespace ARMiniCore.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UsuarioPaseId"), 1L, 1);
 
+                    b.Property<DateTime>("FechaCompra")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FechaExpiracion")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("PaseId")
                         .HasColumnType("int");
 
                     b.Property<int>("UsuarioId")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("fechaCompra")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("fechaExpiracion")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("UsuarioPaseId");
 
@@ -104,7 +104,7 @@ namespace ARMiniCore.Data.Migrations
 
                     b.HasIndex("UsuarioId");
 
-                    b.ToTable("UsuarioPase", (string)null);
+                    b.ToTable("UsuarioPase");
                 });
 
             modelBuilder.Entity("ARMiniCore.Data.Models.UsuarioPase", b =>

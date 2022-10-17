@@ -1,0 +1,35 @@
+﻿@model ARMiniCore.Data.Models.Pase
+@{
+    ViewData["Title"] = "Crear Pase";
+}
+<h2>Crear Usuario</h2>
+@if (ViewBag.Error != null)
+{
+    <div class="container">
+        <div class="alert alert-primary">
+            @ViewBag.Error
+        </div>
+    </div>
+}
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        <div>
+            <p>Tipo de pase</p>
+            @Html.EditorFor(model => model.TipoPase)
+        </div>
+        <div>
+            <p>Costo</p>
+            @Html.EditorFor(model => model.Costo)
+        </div>
+        <div>
+            <p>Cantidad de pases</p>
+            @Html.EditorFor(model => model.Pases)
+        </div>
+        <div>
+            <p>Costo individual de pase</p>
+            @Html.EditorFor(model => model.CostoPase)
+        </div>
+        <input values:"Crear" type="submit" />
+    }
+</div>

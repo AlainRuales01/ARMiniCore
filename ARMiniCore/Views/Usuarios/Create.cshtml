@@ -3,11 +3,11 @@
     ViewData["Title"] = "Crear Usuario";
 }
 <h2>Crear Usuario</h2>
-@if (ViewBag.Error == "Error")
+@if (ViewBag.Error != null)
 {
     <div class="container">
         <div class="alert alert-primary">
-            Se debe insertar información en todos los campos
+            @ViewBag.Error
         </div>
     </div>
 }

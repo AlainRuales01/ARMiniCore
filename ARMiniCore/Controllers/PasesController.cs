@@ -1,21 +1,22 @@
 ﻿using ARMiniCore.Data.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ARMiniCore.Controllers
 {
-    public class UsuariosController : Controller
+    public class PasesController : Controller
     {
         private DataBaseContext _context;
 
-        public UsuariosController(DataBaseContext context)
+        public PasesController(DataBaseContext context)
         {
             _context = context;
         }
 
         public IActionResult Index()
         {
-            var usuarios = _context.Usuario.ToList();
-            return View(usuarios);
+            var pases = _context.Pase.ToList();
+            return View(pases);
         }
 
         public IActionResult Create()
@@ -24,9 +25,9 @@ namespace ARMiniCore.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Usuario nuevoUsuario)
-        {
-            _context.Usuario.Add(nuevoUsuario);
+        public IActionResult Create(Pase nuevoPase)
+            {
+            _context.Pase.Add(nuevoPase);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }

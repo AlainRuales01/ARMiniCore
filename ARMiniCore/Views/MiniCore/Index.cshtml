@@ -1,0 +1,147 @@
+﻿@model ARMiniCore.Models.MiniCoreModel
+
+@{
+    ViewData["Title"] = "Logica de negocio";
+}
+
+@if (ViewBag.Error != null)
+{
+    <div class="container">
+        <div class="alert alert-primary">
+            ViewBag.Error
+        </div>
+    </div>
+}
+<br />
+<br />
+
+@if (Model.Usuarios.Count > 0)
+{
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Fecha de nacimiento</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Usuarios)
+                {
+                    <tr class="align-middle">
+                        <td>
+                            @item.Nombre
+                        </td>
+                        <td>
+                            @item.Correo
+                        </td>
+                        <td>
+                            @item.FechaNacimiento.ToShortDateString()
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="container">
+        <div class="alert alert-primary">
+            <h2>No existen registros de usuarios</h2>
+        </div>
+    </div>
+}
+
+
+@if (Model.Pases.Count > 0)
+{
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>Tipo de Pase</th>
+                    <th>Costo Pase</th>
+                    <th>Pases</th>
+                    <th>Costo Pase</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Pases)
+                {
+                    <tr class="align-middle">
+                        <td>
+                            @item.TipoPase
+                        </td>
+                        <td>
+                            @item.Costo
+                        </td>
+                        <td>
+                            @item.Pases
+                        </td>
+                        <td>
+                            @item.CostoPase
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="container">
+        <div class="alert alert-primary">
+            <h2>No existen registros de pases</h2>
+        </div>
+    </div>
+}
+
+@if (Model.UsuarioPases.Count > 0)
+{
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>Nombre de usuario</th>
+                    <th>Tipo de Pase</th>
+                    <th>Número de pases</th>
+                    <th>Número de pases restantes</th>
+                    <th>Fecha de compra</th>
+                    <th>Fecha de expiración</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.UsuarioPases)
+                {
+                    <tr class="align-middle">
+                        <td>
+                            @item.Usuario.Nombre
+                        </td>
+                        <td>
+                            @item.Pase.TipoPase
+                        </td>
+                        <td>
+                            @item.Pase.Pases
+                        </td>
+                        <td>
+                            @item.FechaCompra.ToShortDateString()
+                        </td>
+                        <td>
+                            @item.FechaExpiracion.ToShortDateString()
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="container">
+        <div class="alert alert-primary">
+            <h2>No existen registros de pases comprados</h2>
+        </div>
+    </div>
+}

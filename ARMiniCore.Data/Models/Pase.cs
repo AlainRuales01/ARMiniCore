@@ -17,6 +17,7 @@ namespace ARMiniCore.Data.Models
         public double Costo { get; set; }
         public int Pases { get; set; }
         public double CostoPase { get; set; }
-        public virtual ICollection<UsuarioPase> UsuarioPases { get; set; }
+
+        public List<UsuarioPase> UsuarioPases { get; set; }
     }
 }

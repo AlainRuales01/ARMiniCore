@@ -15,9 +15,12 @@ namespace ARMiniCore.Data.Models
         public int UsuarioPaseId { get; set; }
         public int UsuarioId { get; set; }
         public int PaseId { get; set; }
-        public DateTime fechaCompra{ get; set; }
-        public DateTime fechaExpiracion { get; set; }
-        public virtual Usuario Usuario { get; set; }
-        public virtual Pase Pase{ get; set; }
+        public DateTime FechaCompra{ get; set; }
+        public DateTime FechaExpiracion { get; set; }
+
+        public Usuario Usuario { get; set; }
+        public Pase Pase { get; set; }
+
+        
     }
 }
