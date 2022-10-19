@@ -98,43 +98,55 @@ else
     </div>
 }
 
+<div class="container my-2">
+    @using (Html.BeginForm())
+    {
+        <div>
+            <h3>Seleccione una fecha</h3>
+            @Html.TextBoxFor(model=>model.FechaSeleccionada, new{Type = "date"})
+            <input type="submit" value="Calcular">
+        </div>
+    }
+</div>
+
 @if (Model.UsuarioPases.Count > 0)
 {
-    <div class="table-responsive">
-        <table class="table">
-            <thead class="table-dark">
-                <tr>
-                    <th>Nombre de usuario</th>
-                    <th>Tipo de Pase</th>
-                    <th>Número de pases</th>
-                    <th>Número de pases restantes</th>
-                    <th>Fecha de compra</th>
-                    <th>Fecha de expiración</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.UsuarioPases)
-                {
-                    <tr class="align-middle">
-                        <td>
-                            @item.Usuario.Nombre
-                        </td>
-                        <td>
-                            @item.Pase.TipoPase
-                        </td>
-                        <td>
-                            @item.Pase.Pases
-                        </td>
-                        <td>
-                            @item.FechaCompra.ToShortDateString()
-                        </td>
-                        <td>
-                            @item.FechaExpiracion.ToShortDateString()
-                        </td>
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Nombre de usuario</th>
+                        <th>Tipo de Pase</th>
+                        <th>Número de pases restantes</th>
+                        <th>Fecha de compra</th>
+                        <th>Fecha de expiración</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.UsuarioPases)
+                    {
+                        <tr class="align-middle">
+                            <td>
+                                @item.Usuario.Nombre
+                            </td>
+                            <td>
+                                @item.Pase.TipoPase
+                            </td>
+                            <td>
+                                @item.Pase.Pases
+                            </td>
+                            <td>
+                                @item.FechaCompra.ToShortDateString()
+                            </td>
+                            <td>
+                                @item.FechaExpiracion.ToShortDateString()
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
 }
 else
